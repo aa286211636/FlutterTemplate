@@ -30,7 +30,7 @@ class HttpUtil {
       //响应流上前后两次接受到数据的间隔，单位为毫秒。
       receiveTimeout: 6000,
       //Http请求头.
-      headers: {'version':'1.0.0'},
+      headers: {'version': '1.0.0'},
       //请求的Content-Type，默认值是"application/json; charset=utf-8",Headers.formUrlEncodedContentType会自动编码请求体.
       contentType: Headers.jsonContentType,
       //表示期望以那种格式(方式)接受响应数据。接受四种类型 `json`, `stream`, `plain`, `bytes`. 默认值是 `json`,
@@ -55,13 +55,21 @@ class HttpUtil {
         }
         handler.next(options);
       },
-      onResponse: (e, handler) {
+      onResponse: (response, handler) {
         print("响应之前");
-        handler.next(e);
+        if (response.data['code'].toString() == '401') {
+          print('登录过期被拦截到了');
+          //token过期，跳转到登录并清空缓存
+          GetStorage box = GetStorage();
+          box.erase();
+          Get.offAllNamed('/login');
+        }
+        ;
+        handler.next(response);
       },
-      onError: (e, handler) {
+      onError: (error, handler) {
         print("错误之前");
-        handler.next(e);
+        handler.next(error);
       },
     ));
   }
@@ -75,13 +83,6 @@ class HttpUtil {
       response = await dio.get(url,
           queryParameters: data, options: options, cancelToken: cancelToken);
       print('get success---------${response.data}');
-      if (response.data['code'].toString() == '401') {
-        print('登录过期被拦截到了');
-        //token过期，跳转到登录并清空缓存
-        GetStorage box = GetStorage();
-        box.erase();
-        Get.offAllNamed('/login');
-      };
 //      response.data; 响应体
 //      response.headers; 响应头
 //      response.request; 请求体
@@ -102,13 +103,6 @@ class HttpUtil {
       response = await dio.post(url,
           data: data, options: options, cancelToken: cancelToken);
       print('post success---------${response.data}');
-      if (response.data['code'].toString() == '401') {
-        print('登录过期被拦截到了');
-        //token过期，跳转到登录并清空缓存
-        GetStorage box = GetStorage();
-        box.erase();
-        Get.offAllNamed('/login');
-      };
     } on DioError catch (e) {
       print('post error---------$e');
       formatError(e);
