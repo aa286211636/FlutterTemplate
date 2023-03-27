@@ -1,7 +1,7 @@
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import '../common/urls.dart';
+import 'apiurls.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart' hide Response;
 

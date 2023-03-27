@@ -3,7 +3,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
 import 'routers/routers.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'common/language.dart';
+import 'common/languages.dart';
 void main() async {
   await GetStorage.init();
   runApp(const MyAPP());
