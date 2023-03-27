@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
+import '../common/keepalive.dart';
 import '../pages/form.dart';
 import '../pages/mine.dart';
 import '../pages/addressbook.dart';
@@ -13,12 +13,21 @@ class Tabs extends StatefulWidget {
 
 class _TabsState extends State<Tabs> {
   var _currentIndex = 0;
-  List pages = [FormPage(), AddressbookPage(), MinePage()];
+  //为了让tabbar页面初始化一次
+  List<Widget> pages = [
+    KeepAliveWrapper(child: FormPage()),
+    KeepAliveWrapper(child: AddressbookPage()),
+    KeepAliveWrapper(child: MinePage())
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[_currentIndex],
+      //AutomaticKeepAliveClientMixin需要配合IndexedStack使用
+      body: IndexedStack(
+        children: pages,
+        index: _currentIndex,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(

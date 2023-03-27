@@ -1,11 +1,10 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import '../base/urls.dart';
-import '../base/httputil.dart';
+import '../common/urls.dart';
+import '../common/httputil.dart';
 import 'package:flutter_demo/login/loginmodel.dart';
 
 class LoginPage extends StatefulWidget {
@@ -77,8 +76,6 @@ class _LoginPageState extends State<LoginPage> {
       GetStorage box = GetStorage();
       box.write("access_token", entity.data.accessToken);
       Get.offAllNamed('/');
-    } else {
-     
-    }
+    } else {}
   }
 }

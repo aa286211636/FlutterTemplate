@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
-import '../base/httputil.dart';
-import '../base/urls.dart';
+import '../common/httputil.dart';
+import '../common/urls.dart';
 import '../pages/employee_model.dart';
 
 class FormPage extends StatefulWidget {
@@ -42,10 +42,8 @@ class _FormPageState extends State<FormPage> {
   }
 
   _getList() async {
-    var response = await HttpUtil().post(APIURL.BasicInfomationUrl,data: {
-      'pageNum':pageNum,
-      'pageSize':pageSize
-    });
+    var response = await HttpUtil().post(APIURL.BasicInfomationUrl,
+        data: {'pageNum': pageNum, 'pageSize': pageSize});
     var jsonStr = json.decode(response.toString());
     var entity = EmployeeModel.fromJson(jsonStr);
     if (entity.code == 0) {
