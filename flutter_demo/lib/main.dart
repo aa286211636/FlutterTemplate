@@ -3,7 +3,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
 import 'routers/routers.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-
+import 'common/language.dart';
 void main() async {
   await GetStorage.init();
   runApp(const MyAPP());
@@ -18,6 +18,9 @@ class MyAPP extends StatelessWidget {
     return KeyboardDismissOnTap(
         child: GetMaterialApp(
       initialRoute: box.hasData('access_token') ? '/' : '/login',
+      translations: Language(),
+      locale: Locale('zh','CN'),
+      fallbackLocale: Locale('en','US'),
       getPages: AppRoute.routes,
       defaultTransition: Transition.cupertino,
     ));

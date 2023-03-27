@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../common/keepalive.dart';
 import '../pages/form.dart';
 import '../pages/mine.dart';
@@ -31,9 +32,9 @@ class _TabsState extends State<Tabs> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.list_alt_rounded), label: '列表'),
-          BottomNavigationBarItem(icon: Icon(Icons.book_sharp), label: '通讯录'),
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: '我的'),
+              icon: Icon(Icons.list_alt_rounded), label: '列表'.tr),
+          BottomNavigationBarItem(icon: Icon(Icons.book_sharp), label: '通讯录'.tr),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: '我的'.tr),
         ],
         currentIndex: _currentIndex,
         onTap: (value) {

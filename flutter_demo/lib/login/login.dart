@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
             TextField(
               controller: _accountController,
               decoration: InputDecoration(
-                labelText: '请输入账号',
+                labelText: '请输入账号'.tr,
               ),
             ),
             SizedBox(
@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             TextField(
               controller: _passwordController,
-              decoration: InputDecoration(labelText: '请输入密码'),
+              decoration: InputDecoration(labelText: '请输入密码'.tr),
             ),
             SizedBox(height: 40),
             Container(
@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                     _checkTextFlied(
                         _accountController.text, _passwordController.text);
                   },
-                  child: Text('登录')),
+                  child: Text('登录'.tr)),
             )
           ],
         ),
@@ -59,9 +59,9 @@ class _LoginPageState extends State<LoginPage> {
 
   _checkTextFlied(String accountStr, String passwordStr) {
     if (accountStr.isEmpty) {
-      Fluttertoast.showToast(msg: '账号不能为空');
+      Fluttertoast.showToast(msg: '账号不能为空'.tr);
     } else if (passwordStr.isEmpty) {
-      Fluttertoast.showToast(msg: '密码不能为空');
+      Fluttertoast.showToast(msg: '密码不能为空'.tr);
     } else {
       _loginRequest(accountStr, passwordStr);
     }
