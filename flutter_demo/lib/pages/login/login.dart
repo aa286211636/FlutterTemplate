@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import '../common/apiurls.dart';
-import '../common/httputil.dart';
-import 'package:flutter_demo/login/loginmodel.dart';
+import '../../common/apiurls.dart';
+import '../../common/httputil.dart';
+import '../login/loginmodel.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

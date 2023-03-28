@@ -1,18 +1,18 @@
 import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
-import '../common/httputil.dart';
-import '../common/apiurls.dart';
-import '../pages/employee_model.dart';
+import '../../common/apiurls.dart';
+import '../../common/httputil.dart';
+import '../../pages/employee/employee_model.dart';
 
-class FormPage extends StatefulWidget {
-  const FormPage({super.key});
+class EmployeeListPage extends StatefulWidget {
+  const EmployeeListPage({super.key});
 
   @override
-  State<FormPage> createState() => _FormPageState();
+  State<EmployeeListPage> createState() => _EmployeeListPageState();
 }
 
-class _FormPageState extends State<FormPage> {
+class _EmployeeListPageState extends State<EmployeeListPage> {
   final List dataArr = [];
   late int pageNum;
   late int pageSize;

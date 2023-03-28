@@ -15,7 +15,7 @@ class Language extends Translations {
            '列表':'列表',
            '通讯录':'通讯录',
            '我的':'我的',
-
+           'SliverBar示例':'SliverBar示例'
 
 
         },
@@ -32,6 +32,8 @@ class Language extends Translations {
            '列表':'List',
            '通讯录':'Addressbook',
            '我的':'Personal',
+            'SliverBar示例':'SliverBar Example'
+
         },
   };
 }
