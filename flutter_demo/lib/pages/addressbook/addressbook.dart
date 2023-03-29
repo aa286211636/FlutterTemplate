@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:lpinyin/lpinyin.dart';
-export 'package:common_utils/common_utils.dart';
 import '../addressbook/contactmodel.dart';
 
 class AddressbookPage extends StatefulWidget {
@@ -31,9 +30,7 @@ class _AddressbookPageState extends State<AddressbookPage> {
       list.forEach((V) {
         _contacts.add(ContactModel.fromJson(V));
       });
-      setState(() {
-         _handleList(_contacts);
-      });
+       _handleList(_contacts); 
     });
   }
 
@@ -54,6 +51,7 @@ class _AddressbookPageState extends State<AddressbookPage> {
     SuspensionUtil.sortListBySuspensionTag(_contacts);
     //show sus tag
     SuspensionUtil.setShowSuspensionStatus(_contacts);
+    setState(() {});
   }
 
   Widget _buildSusWiget(String susTag) {
