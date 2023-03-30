@@ -16,9 +16,9 @@ class _TabsState extends State<Tabs> {
   var _currentIndex = 0;
   //为了让tabbar页面初始化一次
   List<Widget> pages = [
-    KeepAliveWrapper(child: EmployeeListPage()),
-    KeepAliveWrapper(child: AddressbookPage()),
-    KeepAliveWrapper(child: MinePage())
+    const KeepAliveWrapper(child: EmployeeListPage()),
+    const KeepAliveWrapper(child: AddressbookPage()),
+    const KeepAliveWrapper(child: MinePage())
   ];
 
   @override
@@ -26,16 +26,16 @@ class _TabsState extends State<Tabs> {
     return Scaffold(
       //AutomaticKeepAliveClientMixin需要配合IndexedStack使用
       body: IndexedStack(
-        children: pages,
         index: _currentIndex,
+        children: pages,
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.list_alt_rounded), label: '列表'.tr),
+              icon: const Icon(Icons.list_alt_rounded), label: '列表'.tr),
           BottomNavigationBarItem(
-              icon: Icon(Icons.book_sharp), label: '通讯录'.tr),
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: '我的'.tr),
+              icon: const Icon(Icons.book_sharp), label: '通讯录'.tr),
+          BottomNavigationBarItem(icon: const Icon(Icons.people), label: '我的'.tr),
         ],
         currentIndex: _currentIndex,
         onTap: (value) {

@@ -19,8 +19,8 @@ class MyAPP extends StatelessWidget {
         child: GetMaterialApp(
       initialRoute: box.hasData('access_token') ? '/' : '/login',
       translations: Language(),
-      locale: Locale('zh','CN'),
-      fallbackLocale: Locale('en','US'),
+      locale: const Locale('zh','CN'),
+      fallbackLocale: const Locale('en','US'),
       getPages: AppRoute.routes,
       defaultTransition: Transition.cupertino,
     ));

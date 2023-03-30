@@ -33,23 +33,23 @@ class _MinePageState extends State<MinePage> {
                 Get.offAllNamed('/login');
               },
               child: Text('退出登录'.tr)),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ElevatedButton(
               onPressed: () {
                 Get.changeTheme(
                     Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
               },
               child: Text('夜间模式切换'.tr)),
-          SizedBox(height: 10),
+         const SizedBox(height: 10),
           ElevatedButton(
               onPressed: () {
                 setState(() {
                   isChinese = !isChinese;
                 });
-                Get.updateLocale(isChinese ? Locale('en_US') : Locale('zh_CN'));
+                Get.updateLocale(isChinese ?const Locale('en_US') : const Locale('zh_CN'));
               },
               child: Text('中英文切换'.tr)),
-          SizedBox(height: 10),
+         const SizedBox(height: 10),
           ElevatedButton(
               onPressed: () {
                 Get.toNamed('/sliver');

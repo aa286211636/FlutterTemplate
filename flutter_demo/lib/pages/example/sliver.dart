@@ -26,7 +26,7 @@ class SliverPage extends StatelessWidget {
           ),
           SliverFixedExtentList(
               delegate: SliverChildBuilderDelegate(
-                  (context, index) => Text('item${index}')),
+                  (context, index) => Text('item$index')),
               itemExtent: 40)
         ],
       ),

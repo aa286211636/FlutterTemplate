@@ -17,13 +17,12 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _accountController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final _connect = GetConnect();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding:const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -33,15 +32,15 @@ class _LoginPageState extends State<LoginPage> {
                 labelText: '请输入账号'.tr,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
               controller: _passwordController,
               decoration: InputDecoration(labelText: '请输入密码'.tr),
             ),
-            SizedBox(height: 40),
-            Container(
+            const SizedBox(height: 40),
+            SizedBox(
               width: Get.width * 0.8,
               height: 50,
               child: ElevatedButton(
@@ -68,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   _loginRequest(String accountStr, String passwordStr) async {
-    var response = await HttpUtil().post(APIURL.LoginUrl,
+    var response = await HttpUtil().post(APIURL.loginUrl,
         data: {'username': accountStr, 'password': passwordStr});
     var loginMap = json.decode(response.toString());
     var entity = loginmodel.fromJson(loginMap);

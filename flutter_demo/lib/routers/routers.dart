@@ -9,9 +9,9 @@ final storage = GetStorage();
 
 class AppRoute {
   static final routes = [
-    GetPage(name: '/', page: () => Tabs()),
-    GetPage(name: '/login', page: () => LoginPage()),
-    GetPage(name: '/sliver', page: () => SliverPage()),
+    GetPage(name: '/', page: () => const Tabs()),
+    GetPage(name: '/login', page: () => const LoginPage()),
+    GetPage(name: '/sliver', page: () => const SliverPage()),
     GetPage(name: '/citylist', page: () => CityListPage()),
   ];
 }

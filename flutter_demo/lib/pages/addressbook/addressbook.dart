@@ -14,7 +14,7 @@ class AddressbookPage extends StatefulWidget {
 }
 
 class _AddressbookPageState extends State<AddressbookPage> {
-  List<ContactModel> _contacts = [];
+  final List<ContactModel> _contacts = [];
   double susItemHeight = 40;
 
   @override
@@ -27,9 +27,9 @@ class _AddressbookPageState extends State<AddressbookPage> {
     //加载联系人列表
     rootBundle.loadString('assets/data/contacts.json').then((value) {
       List list = json.decode(value);
-      list.forEach((V) {
+      for (var V in list) {
         _contacts.add(ContactModel.fromJson(V));
-      });
+      }
        _handleList(_contacts); 
     });
   }
@@ -56,17 +56,17 @@ class _AddressbookPageState extends State<AddressbookPage> {
 
   Widget _buildSusWiget(String susTag) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       height: susItemHeight,
       width: double.infinity,
       alignment: Alignment.centerLeft,
       child: Row(
         children: [
           Text(
-            '$susTag',
+            susTag,
             textScaleFactor: 1.2,
           ),
-          Expanded(
+          const Expanded(
               child: Divider(
             height: 0,
             indent: 10,
@@ -89,7 +89,7 @@ class _AddressbookPageState extends State<AddressbookPage> {
             backgroundColor: Colors.blue,
             child: Text(
               model.name[0],
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
           title: Text(model.name),
@@ -107,9 +107,9 @@ class _AddressbookPageState extends State<AddressbookPage> {
       body: AzListView(
         data: _contacts,
         itemCount: _contacts.length,
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         indexBarData: SuspensionUtil.getTagIndexList(_contacts),
-        indexBarMargin: EdgeInsets.all(10),
+        indexBarMargin: const EdgeInsets.all(10),
         itemBuilder: (BuildContext context, int index) {
           ContactModel model = _contacts[index];
           return _buildListItem(model);
@@ -117,7 +117,7 @@ class _AddressbookPageState extends State<AddressbookPage> {
         indexBarOptions: IndexBarOptions(
             needRebuild: true,
             decoration: BoxDecoration(color: Colors.grey[50]!),
-            downDecoration: BoxDecoration(color: Colors.grey)),
+            downDecoration: const BoxDecoration(color: Colors.grey)),
       ),
     );
   }

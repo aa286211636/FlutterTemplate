@@ -13,7 +13,9 @@ class HttpUtil {
   late CancelToken cancelToken = CancelToken();
 
   static HttpUtil getInstance() {
-    if (_instance == null) _instance = HttpUtil();
+    if (_instance == null) {
+      _instance = HttpUtil();
+    }
     return _instance;
   }
 
@@ -24,7 +26,7 @@ class HttpUtil {
     //BaseOptions、Options、RequestOptions 都可以配置参数，优先级别依次递增，且可以根据优先级别覆盖参数
     options = BaseOptions(
       //请求基地址,可以包含子路径
-      baseUrl: APIURL.BaseUrl,
+      baseUrl: APIURL.baseUrl,
       //连接服务器超时时间，单位是毫秒.
       connectTimeout: 6000,
       //响应流上前后两次接受到数据的间隔，单位为毫秒。

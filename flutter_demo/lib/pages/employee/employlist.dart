@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../common/apiurls.dart';
 import '../../common/httputil.dart';
 import '../../pages/employee/employee_model.dart';
@@ -19,7 +20,6 @@ class _EmployeeListPageState extends State<EmployeeListPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     pageNum = 1;
     pageSize = 20;
@@ -30,19 +30,19 @@ class _EmployeeListPageState extends State<EmployeeListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('员工列表'),
+        title: Text('列表'.tr),
       ),
       body: ListView.builder(
         itemCount: dataArr.length,
         itemBuilder: (BuildContext context, int index) {
-          return Text('data');
+          return const Text('data');
         },
       ),
     );
   }
 
   _getList() async {
-    var response = await HttpUtil().post(APIURL.BasicInfomationUrl,
+    var response = await HttpUtil().post(APIURL.basicInfomationUrl,
         data: {'pageNum': pageNum, 'pageSize': pageSize});
     var jsonStr = json.decode(response.toString());
     var entity = EmployeeModel.fromJson(jsonStr);
