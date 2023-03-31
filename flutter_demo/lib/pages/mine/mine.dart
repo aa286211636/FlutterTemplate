@@ -55,12 +55,24 @@ class _MinePageState extends State<MinePage> {
                 Get.toNamed('/sliver');
               },
               child: Text('SliverBar示例'.tr)),
-              SizedBox(height: 10),
+          const SizedBox(height: 10),
           ElevatedButton(
               onPressed: () {
                 Get.toNamed('/citylist');
               },
               child: Text('城市示例'.tr)),
+          const SizedBox(height: 10),
+          ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/ninegirdview');
+              },
+              child: Text('九宫格'.tr)),
+          const SizedBox(height: 10),
+          ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/ninegirddragview');
+              },
+              child: Text('九宫格拖拽'.tr)),
         ],
         
       )),

@@ -46,6 +46,8 @@ dependencies:
   common_utils: ^2.0.0
   # 汉字转拼音
   lpinyin: ^2.0.0
+  flutter_gallery_assets: ^1.0.2
+  nine_grid_view: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +76,16 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/data/
+    - assets/images/
+    - packages/flutter_gallery_assets/people/ali_landscape.png
+    - packages/flutter_gallery_assets/people/square/ali.png
+    - packages/flutter_gallery_assets/people/square/peter.png
+    - packages/flutter_gallery_assets/people/square/sandra.png
+    - packages/flutter_gallery_assets/people/square/stella.png
+    - packages/flutter_gallery_assets/people/square/trevor.png
+    - packages/flutter_gallery_assets/places/india_tanjore_bronze_works.png
+    - packages/flutter_gallery_assets/places/india_tanjore_market_merchant.png
+    - packages/flutter_gallery_assets/places/india_tanjore_thanjavur_temple_carvings.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
